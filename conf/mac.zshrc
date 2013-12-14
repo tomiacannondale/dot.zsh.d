@@ -22,7 +22,7 @@ nvm use "v0.5.0"
 # fi
 
 # oh-my-zshのプラグインを指定
-plugins=(git ruby bundler gem rails3 brew thor)
+plugins=(git ruby bundler gem rails brew thor)
 
 # zshを読み込み
 source $ZSH/oh-my-zsh.sh
