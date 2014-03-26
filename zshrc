@@ -34,18 +34,6 @@ alias gnp='git --no-pager'
 ## ディレクトリ名だけでcd
 setopt auto_cd
 
-## auto-fu.zsh
-# http://blog.glidenote.com/blog/2012/04/07/auto-fu.zsh/
-# https://github.com/hchbaw/auto-fu.zsh
-if [ -f ~/.zsh.d/plugins/auto-fu.zsh/auto-fu.zsh ]; then
-    source ~/.zsh.d/plugins/auto-fu.zsh/auto-fu.zsh
-    function zle-line-init () {
-        auto-fu-init
-    }
-    zle -N zle-line-init
-    zstyle ':completion:*' completer _oldlist _complete
-fi
-
 # 各OSごとの設定を読み込む
 case "${OSTYPE}" in
 darwin*)
