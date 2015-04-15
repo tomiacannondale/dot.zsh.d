@@ -14,11 +14,6 @@ export PATH=$PATH:$HOME/bin
 # haskellのライブラリ管理
 export PATH=$PATH:$HOME/.cabal/bin
 
-# 環境変数ENVとemacsのENVをあわせる
-perl -wle \
-    'do { print qq/(setenv "$_" "$ENV{$_}")/ if exists $ENV{$_} } for @ARGV' \
-    PATH > ~/.emacs.d/elisp/shellenv.el
-
 ## ビープ音を鳴らさない
 setopt no_beep
 
