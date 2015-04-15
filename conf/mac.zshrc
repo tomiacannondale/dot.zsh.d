@@ -4,9 +4,6 @@
 # oh-my-zshのプラグインを指定
 plugins=(git ruby bundler gem rails brew thor)
 
-# zshを読み込み
-source $ZSH/oh-my-zsh.sh
-
 ## git editor
 export GIT_EDITOR=/opt/boxen/homebrew/bin/emacsclient
 export HOMEBREW_EDITOR=/opt/boxen/homebrew/bin/emacsclient
