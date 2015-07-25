@@ -18,3 +18,8 @@ compinit -U
 
 # mac(FreeBSD)の時は明示的に拡張正規表現を使用する
 alias sed='sed -E'
+
+# According to the brew of comments
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
