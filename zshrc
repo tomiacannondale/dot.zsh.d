@@ -59,3 +59,6 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+# historyに重複を登録しない
+setopt HIST_IGNORE_ALL_DUPS
