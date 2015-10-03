@@ -1,4 +1,7 @@
 # -*- mode: Shell-script -*-
+# zsh/regexのload
+zmodload zsh/regex
+
 # oh-my-zshのパスを指定する
 ZSH=$HOME/.zsh.d/plugins/oh-my-zsh
 
