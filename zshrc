@@ -65,3 +65,7 @@ bindkey '^r' peco-select-history
 
 # historyに重複を登録しない
 setopt HIST_IGNORE_ALL_DUPS
+
+# PATHの指定
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
