@@ -23,3 +23,6 @@ alias sed='sed -E'
 unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
+
+# rabbitmqをhomebrewでインストールするとここに入る
+export PATH=/usr/local/sbin:$PATH
