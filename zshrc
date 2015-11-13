@@ -11,12 +11,6 @@ ZSH=$HOME/.zsh.d/plugins/oh-my-zsh
 # にある。
 ZSH_THEME="ys"
 
-## for my exec path
-export PATH=$PATH:$HOME/bin
-
-# haskellのライブラリ管理
-export PATH=$PATH:$HOME/.cabal/bin
-
 ## ビープ音を鳴らさない
 setopt no_beep
 
@@ -69,3 +63,7 @@ setopt HIST_IGNORE_ALL_DUPS
 # PATHの指定
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
+## haskellのライブラリ管理
+export PATH=$PATH:$HOME/.cabal/bin
+## for my exec path
+export PATH=$PATH:$HOME/bin
