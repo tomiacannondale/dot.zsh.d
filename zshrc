@@ -64,8 +64,9 @@ setopt HIST_IGNORE_ALL_DUPS
 export fpath=($fpath $HOME/.zsh.d/completions)
 
 # PATHの指定
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
 ## haskellのライブラリ管理
 export PATH=$PATH:$HOME/.cabal/bin
 ## for my exec path
