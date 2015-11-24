@@ -60,6 +60,9 @@ bindkey '^r' peco-select-history
 # historyに重複を登録しない
 setopt HIST_IGNORE_ALL_DUPS
 
+# completions
+export fpath=($fpath $HOME/.zsh.d/completions)
+
 # PATHの指定
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
