@@ -1,32 +1,105 @@
 # -*- mode: Shell-script -*-
-# zsh/regexのload
-zmodload zsh/regex
+## zplug
+### インストール
+if [[ ! -d ~/.zplug ]]; then
+  git clone https://github.com/zplug/zplug ~/.zplug
+  source ~/.zplug/init.zsh && zplug update --self
+fi
 
-# oh-my-zshのパスを指定する
-ZSH=$HOME/.zsh.d/plugins/oh-my-zsh
+### zplugの読み込み
+source ~/.zplug/init.zsh
 
-# oh-my-zshのテーマを使用する
-# 他のテーマは
-# oh-my-zsh/themes/
-# にある。
-ZSH_THEME="ys"
+### プラグインの読み込み
+zplug "mafredri/zsh-async", "on:sindresorhus/pure"
+zplug "sindresorhus/pure"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug $HOME/.zsh.d/functions, from:local
 
-## ビープ音を鳴らさない
+### 未インストールのものをインストール
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    else
+        echo
+    fi
+fi
+zplug load
+
+## path
+### anyenvのpath
+export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH=$PATH:$HOME/bin
+
+### completion用のfpaht(大体lnして終わるからバージョン管理から無視したい)
+export FPATH=$FPATH:$HOME/.zsh.d/completions
+
+## history
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
+# historyに重複を登録しない
+setopt HIST_IGNORE_ALL_DUPS
+# window間でhistoryを共有
+setopt SHARE_HISTORY
+
+## misc
+### cdの履歴を管理
+###     `cd -[TAB]'
+setopt auto_pushd
+
+### コマンドを間違えた時候補を表示
+setopt correct
+
+### 補完時にビープ音を鳴らさない
+setopt nolistbeep
+
+### ビープ音を鳴らさない
 setopt no_beep
 
-## grepをカラーに、拡張正規表現にする
+### 補完時大文字小文字を区別しない
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|[-_.]=**'
+
+## aliases
+### grepをカラーに、拡張正規表現にする
 alias grep='grep -E --color'
 
-## dfではブロック表示でなくギガ(メガ)バイト表示
-alias df='df -h'
+### git
+alias g=git
 
-## gitでページャーを使わない
+### gitでページャーを使わない
 alias gnp='git --no-pager'
 
-## ディレクトリ名だけでcd
-setopt auto_cd
+### bundle exec
+alias be="bundle exec"
 
-# 各OSごとの設定を読み込む
+### grepをカラーに、拡張正規表現にする
+alias grep='grep -E --color'
+
+### dfではブロック表示でなくギガ(メガ)バイト表示
+alias df='df -h'
+
+### lsをカラー表示
+alias ls='ls -G'
+
+## autoload
+
+## competionの構築
+autoload -U promptinit && promptinit
+
+## 各種pluginの追加設定
+### anyenv
+eval "$(anyenv init -)"
+
+### peco-select-history
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+### autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+## 各OSごとの設定を読み込む
 case "${OSTYPE}" in
 darwin*)
 	source ~/.zsh.d/conf/mac.zshrc
@@ -37,37 +110,3 @@ cygwin*)
 linux*)
 	source ~/.zsh.d/conf/linux.zshrc
 esac
-
-source $ZSH/oh-my-zsh.sh
-
-# command + rで peco-selected-history
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
-
-# historyに重複を登録しない
-setopt HIST_IGNORE_ALL_DUPS
-
-# completions
-export fpath=($fpath $HOME/.zsh.d/completions)
-
-# PATHの指定
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
-
-## haskellのライブラリ管理
-export PATH=$PATH:$HOME/.cabal/bin
-## for my exec path
-export PATH=$PATH:$HOME/bin

@@ -1,3 +1,4 @@
 /plugins
 /completions/
 !/completions/.gitkeep
+/.DS_Store
