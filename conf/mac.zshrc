@@ -13,3 +13,6 @@ HELPDIR=/usr/local/share/zsh/help
 
 # rabbitmqをhomebrewでインストールするとここに入る
 export PATH=/usr/local/sbin:$PATH
+
+## lessでシンタックスハイライト
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'

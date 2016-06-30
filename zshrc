@@ -83,6 +83,9 @@ alias df='df -h'
 ### lsをカラー表示
 alias ls='ls -G'
 
+### lessでシンタックスハイライト
+export LESS='-R'
+
 ## autoload
 
 ## competionの構築
