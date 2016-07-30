@@ -83,8 +83,13 @@ alias df='df -h'
 ### lsをカラー表示
 alias ls='ls -G'
 
-### lessでシンタックスハイライト
-export LESS='-R'
+### LESSの設定
+# * シンタックスハイライト
+# * 1画面で収まる時はcat的に表示する
+# * カラーエスケープシーケンスをちゃんと扱う
+# * 検索時現在フォーカスしているものだけを反転させる
+# * 検索時ヒットした語を8行目に持ってくる
+export LESS='-R --no-init --quit-if-one-screen --RAW-CONTROL-CHARS -gj8'
 
 ## autoload
 
