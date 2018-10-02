@@ -86,6 +86,8 @@ alias ls='ls -G'
 ### jq + lessでjqのカラーを引き継ぐ
 alias jq='jq -C'
 
+alias e=emacsclient
+
 ### LESSの設定
 # * シンタックスハイライト
 # * 1画面で収まる時はcat的に表示する
