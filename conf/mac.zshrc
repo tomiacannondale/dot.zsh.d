@@ -11,8 +11,10 @@ unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
-# rabbitmqをhomebrewでインストールするとここに入る
+# homebrewでインストールするとここに入るものがある
 export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/opt/texinfo/bin:$PATH
+export PATH=/usr/local/opt/sqlite/bin:$PATH
 
 ## lessでシンタックスハイライト
 export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
