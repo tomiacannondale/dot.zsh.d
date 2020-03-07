@@ -2,6 +2,8 @@
 ## git editor
 export GIT_EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 export HOMEBREW_EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+# mysql2のインストールでコケた
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 # mac(FreeBSD)の時は明示的に拡張正規表現を使用する
 alias sed='sed -E'
