@@ -1,4 +1,8 @@
 # -*- mode: Shell-script -*-
+
+### autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
 ## git editor
 export GIT_EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 export HOMEBREW_EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient

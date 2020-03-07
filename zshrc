@@ -107,9 +107,6 @@ eval "$(anyenv init -)"
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
-### autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
 ## 各OSごとの設定を読み込む
 case "${OSTYPE}" in
 darwin*)
