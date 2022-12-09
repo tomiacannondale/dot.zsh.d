@@ -120,3 +120,7 @@ cygwin*)
 linux*)
 	source ~/.zsh.d/conf/linux.zshrc
 esac
+
+if [[ -f "$HOME/.zsh.d/conf/local.zshrc" ]]; then
+    source $HOME/.zsh.d/conf/local.zshrc
+fi

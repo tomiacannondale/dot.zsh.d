@@ -2,3 +2,4 @@
 /completions/
 !/completions/.gitkeep
 /.DS_Store
+/conf/local.zshrc
