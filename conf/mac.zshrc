@@ -24,3 +24,7 @@ export PATH=/usr/local/opt/sqlite/bin:$PATH
 
 ## lessでシンタックスハイライト
 export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+
+# gcloud
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
